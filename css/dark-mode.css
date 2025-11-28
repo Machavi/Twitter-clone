@@ -1,0 +1,103 @@
+/* ============================================
+   DARK MODE STYLES (Manual Feature)
+   ============================================ */
+
+/* When dark mode checkbox is checked */
+.dark-mode-checkbox:checked~.container,
+.dark-mode-checkbox:checked~.container *,
+.dark-mode-checkbox:checked~body {
+    --bg-color: #000000;
+    --secondary-bg: #16181c;
+    --text-color: #e7e9ea;
+    --text-secondary: #71767b;
+    --border-color: #2f3336;
+    --hover-bg: #16181c;
+}
+
+/* Apply dark mode to body */
+.dark-mode-checkbox:checked~body {
+    background-color: #000000;
+}
+
+/* Apply dark mode to modal */
+.dark-mode-checkbox:checked~.modal-overlay {
+    background-color: rgba(91, 112, 131, 0.6);
+}
+
+.dark-mode-checkbox:checked~.modal-overlay .modal-content {
+    background-color: #000000;
+    border: 1px solid #2f3336;
+}
+
+.dark-mode-checkbox:checked~.modal-overlay .modal-textarea {
+    color: #71767b;
+}
+
+.dark-mode-checkbox:checked~.modal-overlay .modal-textarea:focus {
+    color: #e7e9ea;
+}
+
+/* Timeline header backdrop in dark mode */
+.dark-mode-checkbox:checked~.container .timeline-header {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Search box in dark mode */
+.dark-mode-checkbox:checked~.container .search-box input {
+    background-color: #16181c;
+    color: #e7e9ea;
+}
+
+.dark-mode-checkbox:checked~.container .search-box input:focus {
+    background-color: #000000;
+}
+
+/* Composer textarea in dark mode */
+.dark-mode-checkbox:checked~.container .composer-textarea {
+    color: #71767b;
+}
+
+.dark-mode-checkbox:checked~.container .composer-textarea:focus {
+    color: #e7e9ea;
+}
+
+/* Widget backgrounds in dark mode */
+.dark-mode-checkbox:checked~.container .widget {
+    background-color: #16181c;
+}
+
+/* Hover effects in dark mode */
+.dark-mode-checkbox:checked~.container .nav-item:hover,
+.dark-mode-checkbox:checked~.container .dark-mode-toggle:hover {
+    background-color: #16181c;
+}
+
+.dark-mode-checkbox:checked~.container .tweet-card:hover {
+    background-color: #16181c;
+}
+
+.dark-mode-checkbox:checked~.container .trending-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Change moon icon to sun icon when dark mode is active */
+.dark-mode-checkbox:checked~.container .dark-mode-toggle .fa-moon::before {
+    content: "\f185";
+    /* Sun icon */
+}
+
+/* Follow button in dark mode */
+.dark-mode-checkbox:checked~.container .follow-btn {
+    background-color: #e7e9ea;
+    color: #000000;
+}
+
+.dark-mode-checkbox:checked~.container .follow-btn:hover {
+    background-color: #d7d9da;
+}
+
+.dark-mode-checkbox:checked~.container .follow-checkbox:checked~.follow-btn {
+    background-color: transparent;
+    color: #e7e9ea;
+    border: 1px solid #2f3336;
+}

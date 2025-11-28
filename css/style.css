@@ -1,0 +1,646 @@
+/* ============================================
+   RESET & VARIABLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1DA1F2;
+    --bg-color: #ffffff;
+    --secondary-bg: #f7f9f9;
+    --text-color: #0f1419;
+    --text-secondary: #536471;
+    --border-color: #eff3f4;
+    --hover-bg: #f7f9f9;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* ============================================
+   HIDE CHECKBOXES
+   ============================================ */
+.dark-mode-checkbox,
+.action-checkbox,
+.follow-checkbox {
+    display: none;
+}
+
+/* ============================================
+   MODAL (Hidden by default)
+   ============================================ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(91, 112, 131, 0.4);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Show modal when targeted */
+.modal-overlay:target {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--bg-color);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    flex: 1;
+}
+
+.close-modal {
+    font-size: 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.close-modal:hover {
+    background-color: var(--hover-bg);
+}
+
+.modal-body {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+}
+
+.modal-textarea-wrapper {
+    flex: 1;
+}
+
+.modal-textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-family: inherit;
+    min-height: 120px;
+    color: var(--text-secondary);
+}
+
+.modal-textarea:focus {
+    color: var(--text-color);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.modal-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-icons i {
+    color: var(--primary-color);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.modal-icons i:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+/* ============================================
+   CONTAINER LAYOUT
+   ============================================ */
+.container {
+    display: grid;
+    grid-template-columns: 275px 600px 350px;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* ============================================
+   LEFT SIDEBAR
+   ============================================ */
+.sidebar-left {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.logo i {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.nav-item,
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 30px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.nav-item:hover,
+.dark-mode-toggle:hover {
+    background-color: var(--hover-bg);
+}
+
+.nav-item.active {
+    font-weight: 700;
+}
+
+.nav-item i,
+.dark-mode-toggle i {
+    font-size: 26px;
+    width: 30px;
+}
+
+.tweet-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.tweet-btn:hover {
+    background-color: #1a8cd8;
+}
+
+/* ============================================
+   MAIN TIMELINE
+   ============================================ */
+.timeline {
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    min-height: 100vh;
+}
+
+.timeline-header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 10;
+}
+
+.timeline-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* ============================================
+   TWEET COMPOSER
+   ============================================ */
+.tweet-composer {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 8px solid var(--secondary-bg);
+}
+
+.profile-pic {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.composer-input {
+    flex: 1;
+}
+
+.composer-textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-family: inherit;
+    min-height: 80px;
+    color: var(--text-secondary);
+}
+
+.composer-textarea:focus {
+    color: var(--text-color);
+}
+
+.composer-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.composer-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.composer-icons i {
+    color: var(--primary-color);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.composer-icons i:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+.tweet-submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.tweet-submit-btn:hover {
+    background-color: #1a8cd8;
+}
+
+/* ============================================
+   TWEET CARDS
+   ============================================ */
+.tweet-card {
+    display: flex;
+    gap: 15px;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.tweet-card:hover {
+    background-color: var(--secondary-bg);
+}
+
+.tweet-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.tweet-header .name {
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 15px;
+}
+
+.tweet-header .name:hover {
+    text-decoration: underline;
+}
+
+.tweet-header .handle,
+.tweet-header .time {
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.tweet-text {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: var(--text-color);
+    word-wrap: break-word;
+}
+
+.tweet-actions {
+    display: flex;
+    justify-content: space-between;
+    max-width: 425px;
+    margin-top: 10px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    font-size: 13px;
+    position: relative;
+}
+
+.action-btn i {
+    font-size: 18px;
+}
+
+/* Hide filled heart by default */
+.action-btn .fa-heart.fas {
+    display: none;
+    color: #f91880;
+}
+
+/* Show outline heart by default */
+.action-btn .fa-heart.far {
+    display: inline;
+}
+
+/* When checkbox is checked, show filled heart */
+.action-checkbox:checked~.fa-heart.fas {
+    display: inline;
+}
+
+.action-checkbox:checked~.fa-heart.far {
+    display: none;
+}
+
+/* Hover effects */
+.action-btn:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+    color: var(--primary-color);
+}
+
+.like-btn:hover {
+    background-color: rgba(249, 24, 128, 0.1);
+    color: #f91880;
+}
+
+.retweet-btn:hover {
+    background-color: rgba(0, 186, 124, 0.1);
+    color: #00ba7c;
+}
+
+/* Animation when liked */
+.action-checkbox:checked~.fa-heart.fas {
+    animation: heartPop 0.3s ease;
+}
+
+@keyframes heartPop {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+/* ============================================
+   RIGHT SIDEBAR
+   ============================================ */
+.sidebar-right {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 20px 0;
+    overflow-y: auto;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--secondary-bg);
+    font-size: 15px;
+    outline: none;
+    transition: background-color 0.2s;
+}
+
+.search-box input:focus {
+    background-color: var(--bg-color);
+    border: 1px solid var(--primary-color);
+}
+
+.widget {
+    background-color: var(--secondary-bg);
+    border-radius: 16px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.widget h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.trending-item {
+    padding: 12px 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.trending-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.trending-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.trending-category {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.trending-hashtag {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.trending-count {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.follow-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+}
+
+.follow-item img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.follow-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.follow-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-color);
+}
+
+.follow-handle {
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.follow-btn {
+    background-color: var(--text-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.follow-btn:hover {
+    background-color: #272c26;
+}
+
+/* When checkbox is checked, change button to "Following" */
+.follow-checkbox:checked~.follow-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.follow-checkbox:checked~.follow-btn::before {
+    content: "Following";
+}
+
+.follow-checkbox:not(:checked)~.follow-btn::before {
+    content: "Follow";
+}
+
+.show-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    margin-top: 10px;
+    padding: 12px 0;
+}
+
+.show-more:hover {
+    text-decoration: underline;
+}

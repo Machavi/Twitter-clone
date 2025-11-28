@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeTwitter - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- MANUAL FEATURE: Dark Mode Toggle using CSS checkbox hack -->
+    <input type="checkbox" id="darkModeToggle" class="dark-mode-checkbox">
+
+    <!-- CURSOR FEATURE 1: Tweet Modal using CSS :target -->
+    <div class="modal-overlay" id="tweetModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Compose Tweet</h3>
+                <a href="#" class="close-modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-pic">
+                <div class="modal-textarea-wrapper">
+                    <p contenteditable="true" class="modal-textarea">What's happening?</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-icons">
+                    <i class="far fa-image"></i>
+                    <i class="fas fa-smile"></i>
+                    <i class="far fa-calendar"></i>
+                </div>
+                <a href="#" class="tweet-submit-btn">Tweet</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar-left">
+            <div class="logo">
+                <i class="fab fa-twitter"></i>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="explore.html" class="nav-item">
+                    <i class="fas fa-hashtag"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#notifications" class="nav-item">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#messages" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#bookmarks" class="nav-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Bookmarks</span>
+                </a>
+                <a href="#profile" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <!-- MANUAL FEATURE: Dark Mode Toggle -->
+                <label for="darkModeToggle" class="nav-item dark-mode-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </label>
+            </nav>
+            <a href="#tweetModal" class="tweet-btn">Tweet</a>
+        </aside>
+
+        <!-- MAIN TIMELINE -->
+        <main class="timeline">
+            <!-- Header -->
+            <header class="timeline-header">
+                <h2>Home</h2>
+            </header>
+
+            <!-- Tweet Composer -->
+            <div class="tweet-composer">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-pic">
+                <div class="composer-input">
+                    <p contenteditable="true" class="composer-textarea">What's happening?</p>
+                    <div class="composer-actions">
+                        <div class="composer-icons">
+                            <i class="far fa-image"></i>
+                            <i class="fas fa-smile"></i>
+                            <i class="far fa-calendar"></i>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <a href="#" class="tweet-submit-btn">Tweet</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tweet Feed -->
+            <div class="tweet-feed">
+
+                <!-- Tweet Card 1 -->
+                <article class="tweet-card">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="User" class="profile-pic">
+                    <div class="tweet-content">
+                        <div class="tweet-header">
+                            <span class="name">John Doe</span>
+                            <span class="handle">@johndoe</span>
+                            <span class="time">· 2h</span>
+                        </div>
+                        <p class="tweet-text">Just built an amazing Twitter clone with pure HTML and CSS! 🚀 No
+                            JavaScript needed. Who else is learning web dev?</p>
+                        <div class="tweet-actions">
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-comment"></i>
+                                <span class="count">24</span>
+                            </label>
+                            <label class="action-btn retweet-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-retweet"></i>
+                                <span class="count">12</span>
+                            </label>
+                            <label class="action-btn like-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <span class="count">156</span>
+                            </label>
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-share"></i>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tweet Card 2 -->
+                <article class="tweet-card">
+                    <img src="https://i.pravatar.cc/150?img=3" alt="User" class="profile-pic">
+                    <div class="tweet-content">
+                        <div class="tweet-header">
+                            <span class="name">Jane Smith</span>
+                            <span class="handle">@janesmith</span>
+                            <span class="time">· 5h</span>
+                        </div>
+                        <p class="tweet-text">CSS Grid is a game changer! 🎨 Finally mastered responsive layouts.
+                            #WebDev #CSS</p>
+                        <div class="tweet-actions">
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-comment"></i>
+                                <span class="count">8</span>
+                            </label>
+                            <label class="action-btn retweet-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-retweet"></i>
+                                <span class="count">5</span>
+                            </label>
+                            <label class="action-btn like-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <span class="count">89</span>
+                            </label>
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-share"></i>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tweet Card 3 -->
+                <article class="tweet-card">
+                    <img src="https://i.pravatar.cc/150?img=8" alt="User" class="profile-pic">
+                    <div class="tweet-content">
+                        <div class="tweet-header">
+                            <span class="name">Alex Rivera</span>
+                            <span class="handle">@alexrivera</span>
+                            <span class="time">· 8h</span>
+                        </div>
+                        <p class="tweet-text">Pro tip: You can build interactive features with just CSS using :checked
+                            and :target pseudo-classes! 💡</p>
+                        <div class="tweet-actions">
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-comment"></i>
+                                <span class="count">15</span>
+                            </label>
+                            <label class="action-btn retweet-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-retweet"></i>
+                                <span class="count">28</span>
+                            </label>
+                            <label class="action-btn like-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <span class="count">203</span>
+                            </label>
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-share"></i>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tweet Card 4 -->
+                <article class="tweet-card">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="User" class="profile-pic">
+                    <div class="tweet-content">
+                        <div class="tweet-header">
+                            <span class="name">Sarah Johnson</span>
+                            <span class="handle">@sarahj</span>
+                            <span class="time">· 12h</span>
+                        </div>
+                        <p class="tweet-text">Started my 100 Days of Code challenge today! Day 1: Built a responsive
+                            navbar. Let's do this! 💪 #100DaysOfCode</p>
+                        <div class="tweet-actions">
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-comment"></i>
+                                <span class="count">32</span>
+                            </label>
+                            <label class="action-btn retweet-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-retweet"></i>
+                                <span class="count">45</span>
+                            </label>
+                            <label class="action-btn like-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <span class="count">178</span>
+                            </label>
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-share"></i>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tweet Card 5 -->
+                <article class="tweet-card">
+                    <img src="https://i.pravatar.cc/150?img=9" alt="User" class="profile-pic">
+                    <div class="tweet-content">
+                        <div class="tweet-header">
+                            <span class="name">Mike Chen</span>
+                            <span class="handle">@mikechen</span>
+                            <span class="time">· 1d</span>
+                        </div>
+                        <p class="tweet-text">Shoutout to all the self-taught developers out there! 🎉 Keep pushing, you
+                            got this! 🚀</p>
+                        <div class="tweet-actions">
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-comment"></i>
+                                <span class="count">56</span>
+                            </label>
+                            <label class="action-btn retweet-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-retweet"></i>
+                                <span class="count">89</span>
+                            </label>
+                            <label class="action-btn like-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="far fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <span class="count">421</span>
+                            </label>
+                            <label class="action-btn">
+                                <input type="checkbox" class="action-checkbox">
+                                <i class="fas fa-share"></i>
+                            </label>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="sidebar-right">
+            <!-- Search Bar -->
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Twitter">
+            </div>
+
+            <!-- Trending Section -->
+            <div class="widget trending-widget">
+                <h3>Trends for you</h3>
+                <div class="trending-item">
+                    <div class="trending-info">
+                        <span class="trending-category">Technology · Trending</span>
+                        <span class="trending-hashtag">#WebDevelopment</span>
+                        <span class="trending-count">125K Tweets</span>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-info">
+                        <span class="trending-category">Programming · Trending</span>
+                        <span class="trending-hashtag">#JavaScript</span>
+                        <span class="trending-count">89K Tweets</span>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-info">
+                        <span class="trending-category">Design · Trending</span>
+                        <span class="trending-hashtag">#CSS</span>
+                        <span class="trending-count">56K Tweets</span>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-info">
+                        <span class="trending-category">Coding · Trending</span>
+                        <span class="trending-hashtag">#100DaysOfCode</span>
+                        <span class="trending-count">203K Tweets</span>
+                    </div>
+                </div>
+                <a href="#" class="show-more">Show more</a>
+            </div>
+
+            <!-- Who to Follow -->
+            <div class="widget follow-widget">
+                <h3>Who to follow</h3>
+                <div class="follow-item">
+                    <img src="https://i.pravatar.cc/150?img=15" alt="User">
+                    <div class="follow-info">
+                        <span class="follow-name">Sarah Johnson</span>
+                        <span class="follow-handle">@sarahj</span>
+                    </div>
+                    <input type="checkbox" id="follow1" class="follow-checkbox">
+                    <label for="follow1" class="follow-btn">Follow</label>
+                </div>
+                <div class="follow-item">
+                    <img src="https://i.pravatar.cc/150?img=7" alt="User">
+                    <div class="follow-info">
+                        <span class="follow-name">Mike Chen</span>
+                        <span class="follow-handle">@mikechen</span>
+                    </div>
+                    <input type="checkbox" id="follow2" class="follow-checkbox">
+                    <label for="follow2" class="follow-btn">Follow</label>
+                </div>
+                <div class="follow-item">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="User">
+                    <div class="follow-info">
+                        <span class="follow-name">Emma Davis</span>
+                        <span class="follow-handle">@emmadavis</span>
+                    </div>
+                    <input type="checkbox" id="follow3" class="follow-checkbox">
+                    <label for="follow3" class="follow-btn">Follow</label>
+                </div>
+                <a href="#" class="show-more">Show more</a>
+            </div>
+        </aside>
+    </div>
+
+</body>
+
+</html>
