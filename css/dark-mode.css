@@ -174,11 +174,6 @@ body:has(.dark-mode-checkbox:checked) {
     border-top-color: #2f3336;
 }
 
-/* Category badges in dark mode - keep them colorful */
-.dark-mode-checkbox:checked~.container .category-badge {
-    /* Keep original colors for contrast */
-}
-
 /* Fix white backgrounds */
 .dark-mode-checkbox:checked~.container .timeline,
 .dark-mode-checkbox:checked~.container .explore-main {
