@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeTwitter - Explore</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/explore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <input type="checkbox" id="darkModeToggle" class="dark-mode-checkbox">
+
+    <div class="modal-overlay" id="tweetModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Compose Tweet</h3>
+                <a href="#" class="close-modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-pic">
+                <div class="modal-textarea-wrapper">
+                    <p contenteditable="true" class="modal-textarea">What's happening?</p>
+                    <div class="modal-meta">
+                        <div class="emoji-toolbar" aria-label="Emoji reactions">
+                            <button type="button" class="emoji-btn" aria-label="Add smile">😊</button>
+                            <button type="button" class="emoji-btn" aria-label="Laugh">😂</button>
+                            <button type="button" class="emoji-btn" aria-label="Celebration">🎉</button>
+                            <button type="button" class="emoji-btn" aria-label="Fire">🔥</button>
+                            <button type="button" class="emoji-btn" aria-label="Idea">💡</button>
+                        </div>
+                        <div class="character-counter" data-count="280/280" aria-label="Characters remaining"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <label for="tweetImageUpload" class="image-upload-btn">
+                    <input type="file" id="tweetImageUpload" accept="image/*">
+                    <span class="upload-icon"><i class="far fa-image"></i></span>
+                    <span class="upload-text">Add image</span>
+                </label>
+                <div class="modal-icons">
+                    <i class="far fa-image"></i>
+                    <i class="fas fa-smile"></i>
+                    <i class="far fa-calendar"></i>
+                </div>
+                <a href="#" class="tweet-submit-btn">Tweet</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container explore-layout">
+        <aside class="sidebar-left">
+            <div class="logo">
+                <i class="fab fa-twitter"></i>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="explore.html#forYou" class="nav-item active">
+                    <i class="fas fa-hashtag"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#notifications" class="nav-item">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#messages" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#bookmarks" class="nav-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Bookmarks</span>
+                </a>
+                <a href="#profile" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <label for="darkModeToggle" class="nav-item dark-mode-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </label>
+            </nav>
+            <a href="#tweetModal" class="tweet-btn">Tweet</a>
+        </aside>
+
+        <main class="explore-main">
+            <header class="explore-header">
+                <div class="search-box search-box-large">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search Twitter">
+                </div>
+            </header>
+
+            <section class="tab-system">
+                <span id="forYou" class="tab-anchor"></span>
+                <span id="trending" class="tab-anchor"></span>
+                <span id="news" class="tab-anchor"></span>
+                <span id="sports" class="tab-anchor"></span>
+                <span id="entertainment" class="tab-anchor"></span>
+
+                <div class="tab-links">
+                    <a href="#forYou" class="tab-link" data-tab="forYou">For You</a>
+                    <a href="#trending" class="tab-link" data-tab="trending">Trending</a>
+                    <a href="#news" class="tab-link" data-tab="news">News</a>
+                    <a href="#sports" class="tab-link" data-tab="sports">Sports</a>
+                    <a href="#entertainment" class="tab-link" data-tab="entertainment">Entertainment</a>
+                </div>
+
+                <div class="tab-panels">
+                    <section class="tab-panel" data-panel="forYou" aria-label="For You trends">
+                        <div class="trending-grid">
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-tech">Technology</span>
+                                    <span class="trend-count">125K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#CSSGrid</h4>
+                                <p class="trend-description">Designers are sharing their favorite CSS Grid layouts and
+                                    tips.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-culture">Culture</span>
+                                    <span class="trend-count">98K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#FridayFeeling</h4>
+                                <p class="trend-description">Feel-good stories and playlists to start the weekend right.
+                                </p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-news">World</span>
+                                    <span class="trend-count">203K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#GlobalSummit</h4>
+                                <p class="trend-description">Leaders gather to discuss climate innovation initiatives.
+                                </p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-entertainment">TV</span>
+                                    <span class="trend-count">77K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#GalaxyQuest</h4>
+                                <p class="trend-description">Fan theories erupt after the latest plot twist.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-health">Wellness</span>
+                                    <span class="trend-count">45K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#MindfulMonday</h4>
+                                <p class="trend-description">Creators share small rituals for a calmer work week.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-sports">Esports</span>
+                                    <span class="trend-count">63K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#ValorantMasters</h4>
+                                <p class="trend-description">Semi-final lineups are set after a thrilling weekend.</p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="tab-panel" data-panel="trending" aria-label="Trending topics">
+                        <div class="trending-grid">
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-tech">Technology</span>
+                                    <span class="trend-count">310K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#AIRevolution</h4>
+                                <p class="trend-description">Developers debate the future of AI code assistants.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-news">Politics</span>
+                                    <span class="trend-count">152K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#ElectionWatch</h4>
+                                <p class="trend-description">Live reactions from debates across the country.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-entertainment">Music</span>
+                                    <span class="trend-count">201K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#SummerTour</h4>
+                                <p class="trend-description">Surprise guest announcements light up timelines.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-sports">Football</span>
+                                    <span class="trend-count">174K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#ChampionshipFinal</h4>
+                                <p class="trend-description">Fans trade predictions before the big kickoff.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-culture">Lifestyle</span>
+                                    <span class="trend-count">89K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#TinyHomeLife</h4>
+                                <p class="trend-description">Design inspo for compact living goes viral.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-health">Science</span>
+                                    <span class="trend-count">118K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#OceanCleanup</h4>
+                                <p class="trend-description">New autonomous fleet launches to tackle plastic waste.</p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="tab-panel" data-panel="news" aria-label="News trends">
+                        <div class="trending-grid">
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-news">Breaking</span>
+                                    <span class="trend-count">256K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#MarketWatch</h4>
+                                <p class="trend-description">Global markets rally after new economic forecasts.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-news">Science</span>
+                                    <span class="trend-count">140K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#LunarOutpost</h4>
+                                <p class="trend-description">Space agencies reveal plans for the first lunar lab.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-news">Economy</span>
+                                    <span class="trend-count">112K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#RemoteWork</h4>
+                                <p class="trend-description">New data shows hybrid jobs outpacing office roles.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-news">World</span>
+                                    <span class="trend-count">167K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#Summit2025</h4>
+                                <p class="trend-description">Day two recap from the energy transformation summit.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-news">Finance</span>
+                                    <span class="trend-count">74K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#FintechFuture</h4>
+                                <p class="trend-description">Regulators outline new guardrails for digital banks.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-news">Tech</span>
+                                    <span class="trend-count">95K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#QuantumLeap</h4>
+                                <p class="trend-description">Researchers hit a milestone in quantum encryption.</p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="tab-panel" data-panel="sports" aria-label="Sports trends">
+                        <div class="trending-grid">
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-sports">Basketball</span>
+                                    <span class="trend-count">134K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#FinalFour</h4>
+                                <p class="trend-description">College hoops fans lock in their brackets.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-sports">Tennis</span>
+                                    <span class="trend-count">86K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#ClaySeason</h4>
+                                <p class="trend-description">A new champion rises at the spring clay tournament.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-sports">Running</span>
+                                    <span class="trend-count">59K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#CityMarathon</h4>
+                                <p class="trend-description">Training advice and meetup plans fill the feed.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-sports">Motorsport</span>
+                                    <span class="trend-count">102K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#NightRace</h4>
+                                <p class="trend-description">Highlights from the dramatic street circuit finale.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-sports">Cycling</span>
+                                    <span class="trend-count">41K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#TourPrep</h4>
+                                <p class="trend-description">Teams unveil rosters ahead of the summer classic.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-sports">Baseball</span>
+                                    <span class="trend-count">67K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#OpeningDay</h4>
+                                <p class="trend-description">Stadium upgrades and new uniforms debut today.</p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="tab-panel" data-panel="entertainment" aria-label="Entertainment trends">
+                        <div class="trending-grid">
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-entertainment">Film</span>
+                                    <span class="trend-count">189K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#IndieSpotlight</h4>
+                                <p class="trend-description">Festival juries share their surprise favorites.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-entertainment">Streaming</span>
+                                    <span class="trend-count">132K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#DocumentaryDrop</h4>
+                                <p class="trend-description">A new docuseries exposes the art world’s secrets.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-entertainment">Gaming</span>
+                                    <span class="trend-count">208K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#IndieDirect</h4>
+                                <p class="trend-description">Surprise reveals wow the gaming community.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-entertainment">Art</span>
+                                    <span class="trend-count">54K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#NeonExhibit</h4>
+                                <p class="trend-description">Immersive installations trending across socials.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-entertainment">Books</span>
+                                    <span class="trend-count">71K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#SummerReads</h4>
+                                <p class="trend-description">Authors drop recs ahead of vacation season.</p>
+                            </article>
+                            <article class="trending-card">
+                                <div class="trend-top">
+                                    <span class="trend-category badge-entertainment">Pop Culture</span>
+                                    <span class="trend-count">96K Tweets</span>
+                                </div>
+                                <h4 class="trend-title">#RedCarpetLooks</h4>
+                                <p class="trend-description">Fashion critics review the latest gala arrivals.</p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+

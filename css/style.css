@@ -37,7 +37,7 @@ body {
    MODAL (Hidden by default)
    ============================================ */
 .modal-overlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -47,11 +47,17 @@ body {
     z-index: 9999;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* Show modal when targeted */
 .modal-overlay:target {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .modal-content {
@@ -62,19 +68,14 @@ body {
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    animation: modalSlideIn 0.3s ease;
+    transform: translateY(-30px);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
-@keyframes modalSlideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.modal-overlay:target .modal-content {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .modal-header {
@@ -117,6 +118,62 @@ body {
     flex: 1;
 }
 
+.modal-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.emoji-toolbar {
+    display: flex;
+    gap: 8px;
+}
+
+.emoji-btn {
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: transparent;
+    padding: 6px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s;
+    color: var(--text-color);
+}
+
+.emoji-btn:hover,
+.emoji-btn:focus-visible {
+    background-color: rgba(29, 161, 242, 0.1);
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.emoji-btn:active {
+    transform: scale(0.95);
+}
+
+.character-counter {
+    --progress: 100;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: conic-gradient(var(--primary-color) 0deg calc(var(--progress) * 3.6deg),
+            var(--secondary-bg) calc(var(--progress) * 3.6deg) 360deg);
+}
+
+.character-counter::after {
+    content: attr(data-count);
+}
+
 .modal-textarea {
     width: 100%;
     border: none;
@@ -137,11 +194,45 @@ body {
     align-items: center;
     padding: 15px 20px;
     border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .modal-icons {
     display: flex;
     gap: 15px;
+}
+
+.image-upload-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px 8px 12px;
+    border-radius: 999px;
+    border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.image-upload-btn input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.image-upload-btn:hover,
+.image-upload-btn:focus-within {
+    border-color: var(--primary-color);
+    background-color: rgba(29, 161, 242, 0.12);
+    color: var(--primary-color);
+}
+
+.upload-icon i {
+    color: inherit;
 }
 
 .modal-icons i {

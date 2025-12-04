@@ -27,9 +27,24 @@
                 <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-pic">
                 <div class="modal-textarea-wrapper">
                     <p contenteditable="true" class="modal-textarea">What's happening?</p>
+                    <div class="modal-meta">
+                        <div class="emoji-toolbar" aria-label="Emoji reactions">
+                            <button type="button" class="emoji-btn" aria-label="Add smile">😊</button>
+                            <button type="button" class="emoji-btn" aria-label="Laugh">😂</button>
+                            <button type="button" class="emoji-btn" aria-label="Celebration">🎉</button>
+                            <button type="button" class="emoji-btn" aria-label="Fire">🔥</button>
+                            <button type="button" class="emoji-btn" aria-label="Idea">💡</button>
+                        </div>
+                        <div class="character-counter" data-count="280/280" aria-label="Characters remaining"></div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
+                <label for="tweetImageUpload" class="image-upload-btn">
+                    <input type="file" id="tweetImageUpload" accept="image/*">
+                    <span class="upload-icon"><i class="far fa-image"></i></span>
+                    <span class="upload-text">Add image</span>
+                </label>
                 <div class="modal-icons">
                     <i class="far fa-image"></i>
                     <i class="fas fa-smile"></i>
@@ -114,12 +129,11 @@
                     <img src="https://i.pravatar.cc/150?img=1" alt="User" class="profile-pic">
                     <div class="tweet-content">
                         <div class="tweet-header">
-                            <span class="name">John Doe</span>
-                            <span class="handle">@johndoe</span>
+                            <span class="name">AKA</span>
+                            <span class="handle">@ak</span>
                             <span class="time">· 2h</span>
                         </div>
-                        <p class="tweet-text">Just built an amazing Twitter clone with pure HTML and CSS! 🚀 No
-                            JavaScript needed. Who else is learning web dev?</p>
+                        <p class="tweet-text">Just built an amazing Twitter clone with pure HTML and CSS! 🚀 </p>
                         <div class="tweet-actions">
                             <label class="action-btn">
                                 <input type="checkbox" class="action-checkbox">
@@ -150,12 +164,12 @@
                     <img src="https://i.pravatar.cc/150?img=3" alt="User" class="profile-pic">
                     <div class="tweet-content">
                         <div class="tweet-header">
-                            <span class="name">Jane Smith</span>
-                            <span class="handle">@janesmith</span>
+                            <span class="name">Football For All</span>
+                            <span class="handle">@footy</span>
                             <span class="time">· 5h</span>
                         </div>
-                        <p class="tweet-text">CSS Grid is a game changer! 🎨 Finally mastered responsive layouts.
-                            #WebDev #CSS</p>
+                        <p class="tweet-text">You can change your wife, but not football team.
+                        </p>
                         <div class="tweet-actions">
                             <label class="action-btn">
                                 <input type="checkbox" class="action-checkbox">
@@ -186,12 +200,13 @@
                     <img src="https://i.pravatar.cc/150?img=8" alt="User" class="profile-pic">
                     <div class="tweet-content">
                         <div class="tweet-header">
-                            <span class="name">Alex Rivera</span>
-                            <span class="handle">@alexrivera</span>
+                            <span class="name">Everything Tech</span>
+                            <span class="handle">@tech</span>
                             <span class="time">· 8h</span>
                         </div>
-                        <p class="tweet-text">Pro tip: You can build interactive features with just CSS using :checked
-                            and :target pseudo-classes! 💡</p>
+                        <p class="tweet-text">Check our timeline daily to learn about web development. #CSS
+                            #WebDevelopment💡
+                        </p>
                         <div class="tweet-actions">
                             <label class="action-btn">
                                 <input type="checkbox" class="action-checkbox">
@@ -222,8 +237,8 @@
                     <img src="https://i.pravatar.cc/150?img=5" alt="User" class="profile-pic">
                     <div class="tweet-content">
                         <div class="tweet-header">
-                            <span class="name">Sarah Johnson</span>
-                            <span class="handle">@sarahj</span>
+                            <span class="name">Chavisto</span>
+                            <span class="handle">@chavi</span>
                             <span class="time">· 12h</span>
                         </div>
                         <p class="tweet-text">Started my 100 Days of Code challenge today! Day 1: Built a responsive
@@ -258,12 +273,11 @@
                     <img src="https://i.pravatar.cc/150?img=9" alt="User" class="profile-pic">
                     <div class="tweet-content">
                         <div class="tweet-header">
-                            <span class="name">Mike Chen</span>
-                            <span class="handle">@mikechen</span>
+                            <span class="name">Mike Chauke</span>
+                            <span class="handle">@mikeC</span>
                             <span class="time">· 1d</span>
                         </div>
-                        <p class="tweet-text">Shoutout to all the self-taught developers out there! 🎉 Keep pushing, you
-                            got this! 🚀</p>
+                        <p class="tweet-text"> Winners never give up, lets keep pushing family 🚀</p>
                         <div class="tweet-actions">
                             <label class="action-btn">
                                 <input type="checkbox" class="action-checkbox">
@@ -344,7 +358,7 @@
                         <span class="follow-handle">@sarahj</span>
                     </div>
                     <input type="checkbox" id="follow1" class="follow-checkbox">
-                    <label for="follow1" class="follow-btn">Follow</label>
+                    <label for="follow1" class="follow-btn"></label>
                 </div>
                 <div class="follow-item">
                     <img src="https://i.pravatar.cc/150?img=7" alt="User">
@@ -353,7 +367,7 @@
                         <span class="follow-handle">@mikechen</span>
                     </div>
                     <input type="checkbox" id="follow2" class="follow-checkbox">
-                    <label for="follow2" class="follow-btn">Follow</label>
+                    <label for="follow2" class="follow-btn"></label>
                 </div>
                 <div class="follow-item">
                     <img src="https://i.pravatar.cc/150?img=11" alt="User">
@@ -362,7 +376,7 @@
                         <span class="follow-handle">@emmadavis</span>
                     </div>
                     <input type="checkbox" id="follow3" class="follow-checkbox">
-                    <label for="follow3" class="follow-btn">Follow</label>
+                    <label for="follow3" class="follow-btn"></label>
                 </div>
                 <a href="#" class="show-more">Show more</a>
             </div>

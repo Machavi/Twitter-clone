@@ -48,8 +48,15 @@
     .container {
         grid-template-columns: 1fr;
         padding: 0;
+        gap: 0;
     }
 
+    /* Hide right sidebar completely */
+    .sidebar-right {
+        display: none;
+    }
+
+    /* Transform left sidebar to bottom navigation */
     .sidebar-left {
         position: fixed;
         bottom: 0;
@@ -61,6 +68,7 @@
         border-top: 1px solid var(--border-color);
         padding: 0;
         z-index: 100;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
     }
 
     .logo {
@@ -79,6 +87,9 @@
     .dark-mode-toggle {
         padding: 15px 10px;
         border-radius: 0;
+        flex: 1;
+        display: flex;
+        justify-content: center;
     }
 
     .nav-item span,
@@ -86,6 +97,12 @@
         display: none;
     }
 
+    .nav-item i,
+    .dark-mode-toggle i {
+        font-size: 24px;
+    }
+
+    /* Floating tweet button */
     .tweet-btn {
         position: fixed;
         bottom: 70px;
@@ -94,27 +111,128 @@
         height: 56px;
         border-radius: 50%;
         padding: 0;
-        font-size: 24px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 0;
+        box-shadow: 0 4px 12px rgba(29, 161, 242, 0.4);
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .tweet-btn::before {
         content: "+";
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 1;
     }
 
+    /* Timeline adjustments */
     .timeline {
         border: none;
+        padding-bottom: 80px;
+        min-height: calc(100vh - 60px);
+    }
+
+    .timeline-header {
+        padding: 15px;
+        background-color: var(--bg-color);
+        backdrop-filter: blur(12px);
+    }
+
+    .timeline-header h2 {
+        font-size: 19px;
+    }
+
+    /* Tweet composer */
+    .tweet-composer {
+        padding: 15px;
+        border-bottom: 4px solid var(--secondary-bg);
     }
 
     .composer-textarea,
     .modal-textarea {
         font-size: 16px;
+        min-height: 60px;
     }
 
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Tweet cards */
+    .tweet-card {
+        padding: 12px 15px;
+    }
+
+    .tweet-text {
+        font-size: 15px;
+    }
+
+    .tweet-actions {
+        max-width: 100%;
+        justify-content: space-around;
+    }
+
+    .action-btn {
+        padding: 6px;
+    }
+
+    .action-btn i {
+        font-size: 16px;
+    }
+
+    /* Modal on mobile */
     .modal-content {
-        width: 95%;
-        border-radius: 0;
-        max-height: 100vh;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px 16px 0 0;
+        max-height: 95vh;
+        margin-top: auto;
+    }
+
+    .modal-overlay:target .modal-content {
+        animation: slideUpModal 0.3s ease;
+    }
+
+    @keyframes slideUpModal {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    .modal-footer {
+        padding: 12px 15px;
+    }
+
+    /* Composer actions on mobile */
+    .composer-actions {
+        flex-wrap: wrap;
+    }
+
+    .composer-icons i {
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    .tweet-submit-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    /* Search box */
+    .search-box input {
+        font-size: 16px;
     }
 }
 
@@ -123,12 +241,12 @@
    ============================================ */
 @media (max-width: 480px) {
     .tweet-card {
-        padding: 12px 15px;
+        padding: 10px 12px;
     }
 
     .profile-pic {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
     }
 
     .tweet-text {
@@ -136,10 +254,52 @@
     }
 
     .timeline-header {
-        padding: 15px;
+        padding: 12px;
+    }
+
+    .timeline-header h2 {
+        font-size: 18px;
     }
 
     .tweet-composer {
-        padding: 15px;
+        padding: 12px;
+    }
+
+    .tweet-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 75px;
+        right: 15px;
+    }
+
+    .tweet-btn::before {
+        font-size: 24px;
+    }
+
+    .nav-item i,
+    .dark-mode-toggle i {
+        font-size: 22px;
+    }
+
+    .action-btn {
+        padding: 4px;
+    }
+
+    .action-btn i {
+        font-size: 15px;
+    }
+}
+
+/* ============================================
+   LANDSCAPE MOBILE
+   ============================================ */
+@media (max-width: 896px) and (orientation: landscape) {
+    .timeline {
+        padding-bottom: 70px;
+    }
+
+    .tweet-btn {
+        bottom: 70px;
+        right: 15px;
     }
 }

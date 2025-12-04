@@ -2,10 +2,19 @@
    DARK MODE STYLES (Manual Feature)
    ============================================ */
 
+/* Apply dark mode to body */
+body:has(.dark-mode-checkbox:checked) {
+    --bg-color: #000000;
+    --secondary-bg: #16181c;
+    --text-color: #e7e9ea;
+    --text-secondary: #71767b;
+    --border-color: #2f3336;
+    --hover-bg: #16181c;
+    background-color: #000000;
+}
+
 /* When dark mode checkbox is checked */
-.dark-mode-checkbox:checked~.container,
-.dark-mode-checkbox:checked~.container *,
-.dark-mode-checkbox:checked~body {
+.dark-mode-checkbox:checked~.container {
     --bg-color: #000000;
     --secondary-bg: #16181c;
     --text-color: #e7e9ea;
@@ -14,41 +23,43 @@
     --hover-bg: #16181c;
 }
 
-/* Apply dark mode to body */
-.dark-mode-checkbox:checked~body {
-    background-color: #000000;
+/* Ensure all elements use the updated variables */
+.dark-mode-checkbox:checked~.container * {
+    color: var(--text-color);
 }
 
-/* Apply dark mode to modal */
-.dark-mode-checkbox:checked~.modal-overlay {
-    background-color: rgba(91, 112, 131, 0.6);
+/* Sidebar specific fixes */
+.dark-mode-checkbox:checked~.container .sidebar-left {
+    background-color: var(--bg-color);
 }
 
-.dark-mode-checkbox:checked~.modal-overlay .modal-content {
-    background-color: #000000;
-    border: 1px solid #2f3336;
+.dark-mode-checkbox:checked~.container .nav-item,
+.dark-mode-checkbox:checked~.container .dark-mode-toggle {
+    color: var(--text-color);
 }
 
-.dark-mode-checkbox:checked~.modal-overlay .modal-textarea {
-    color: #71767b;
-}
-
-.dark-mode-checkbox:checked~.modal-overlay .modal-textarea:focus {
-    color: #e7e9ea;
+.dark-mode-checkbox:checked~.container .nav-item:hover,
+.dark-mode-checkbox:checked~.container .dark-mode-toggle:hover {
+    background-color: var(--hover-bg);
 }
 
 /* Timeline header backdrop in dark mode */
-.dark-mode-checkbox:checked~.container .timeline-header {
+.dark-mode-checkbox:checked~.container .timeline-header,
+.dark-mode-checkbox:checked~.container .explore-header {
     background-color: rgba(0, 0, 0, 0.85);
+    border-bottom-color: var(--border-color);
 }
 
 /* Search box in dark mode */
-.dark-mode-checkbox:checked~.container .search-box input {
+.dark-mode-checkbox:checked~.container .search-box input,
+.dark-mode-checkbox:checked~.container .search-box-large input {
     background-color: #16181c;
     color: #e7e9ea;
+    border-color: #2f3336;
 }
 
-.dark-mode-checkbox:checked~.container .search-box input:focus {
+.dark-mode-checkbox:checked~.container .search-box input:focus,
+.dark-mode-checkbox:checked~.container .search-box-large input:focus {
     background-color: #000000;
 }
 
@@ -66,18 +77,48 @@
     background-color: #16181c;
 }
 
-/* Hover effects in dark mode */
-.dark-mode-checkbox:checked~.container .nav-item:hover,
-.dark-mode-checkbox:checked~.container .dark-mode-toggle:hover {
-    background-color: #16181c;
+/* Tweet cards in dark mode */
+.dark-mode-checkbox:checked~.container .tweet-card {
+    border-bottom-color: #2f3336;
 }
 
 .dark-mode-checkbox:checked~.container .tweet-card:hover {
     background-color: #16181c;
 }
 
+/* Trending items */
 .dark-mode-checkbox:checked~.container .trending-item:hover {
     background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Explore page cards */
+.dark-mode-checkbox:checked~.container .trending-card {
+    background-color: #16181c;
+    border-color: #2f3336;
+}
+
+.dark-mode-checkbox:checked~.container .trending-card:hover {
+    background-color: #1e2126;
+    border-color: #3d4144;
+}
+
+/* Tab navigation */
+.dark-mode-checkbox:checked~.container .explore-tabs {
+    border-bottom-color: #2f3336;
+}
+
+.dark-mode-checkbox:checked~.container .tab-link {
+    color: #71767b;
+}
+
+.dark-mode-checkbox:checked~.container .tab-link:hover {
+    background-color: #16181c;
+    color: #e7e9ea;
+}
+
+.dark-mode-checkbox:checked~.container .tab-link.active {
+    color: #e7e9ea;
+    border-bottom-color: #1DA1F2;
 }
 
 /* Change moon icon to sun icon when dark mode is active */
@@ -100,4 +141,46 @@
     background-color: transparent;
     color: #e7e9ea;
     border: 1px solid #2f3336;
+}
+
+/* Modal in dark mode */
+.dark-mode-checkbox:checked~.modal-overlay {
+    background-color: rgba(91, 112, 131, 0.6);
+}
+
+.dark-mode-checkbox:checked~.modal-overlay .modal-content {
+    background-color: #000000;
+    border: 1px solid #2f3336;
+}
+
+.dark-mode-checkbox:checked~.modal-overlay .modal-textarea {
+    color: #71767b;
+}
+
+.dark-mode-checkbox:checked~.modal-overlay .modal-textarea:focus {
+    color: #e7e9ea;
+}
+
+.dark-mode-checkbox:checked~.modal-overlay .modal-textarea:empty:before {
+    color: #71767b;
+}
+
+.dark-mode-checkbox:checked~.modal-overlay .emoji-btn:hover {
+    background-color: #16181c;
+}
+
+/* Composer actions border */
+.dark-mode-checkbox:checked~.container .composer-actions {
+    border-top-color: #2f3336;
+}
+
+/* Category badges in dark mode - keep them colorful */
+.dark-mode-checkbox:checked~.container .category-badge {
+    /* Keep original colors for contrast */
+}
+
+/* Fix white backgrounds */
+.dark-mode-checkbox:checked~.container .timeline,
+.dark-mode-checkbox:checked~.container .explore-main {
+    background-color: #000000;
 }
